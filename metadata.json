@@ -1,0 +1,8 @@
+{
+  "name": "EcoWaste Nigeria",
+  "description": "Modern waste management platform for scheduling waste pickups, tracking recycling rewards, managing eco-services, and smart reporting across Nigeria.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

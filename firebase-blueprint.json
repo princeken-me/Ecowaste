@@ -1,0 +1,90 @@
+{
+  "entities": {
+    "users": {
+      "title": "Users",
+      "description": "User profiles and roles across EcoWaste platform",
+      "type": "object",
+      "properties": {
+        "uid": { "type": "string" },
+        "email": { "type": "string" },
+        "displayName": { "type": "string" },
+        "role": { "type": "string", "enum": ["Resident", "Business", "Collector", "Recycler"] },
+        "phone": { "type": "string" },
+        "address": { "type": "string text" },
+        "city": { "type": "string" },
+        "state": { "type": "string" },
+        "photoURL": { "type": "string url" },
+        "ecoPoints": { "type": "number" },
+        "totalKgRecycled": { "type": "number" },
+        "bankName": { "type": "string" },
+        "accountNumber": { "type": "string" },
+        "createdAt": { "type": "string date-time" },
+        "updatedAt": { "type": "string date-time" }
+      },
+      "required": ["uid", "email", "role"]
+    },
+    "pickups": {
+      "title": "Pickups",
+      "description": "Waste collection and pickup schedules",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "userId": { "type": "string" },
+        "userDisplayName": { "type": "string" },
+        "userPhone": { "type": "string text" },
+        "wasteType": { "type": "string" },
+        "weightKg": { "type": "number" },
+        "pickupDate": { "type": "string date" },
+        "timeSlot": { "type": "string" },
+        "address": { "type": "string text" },
+        "city": { "type": "string" },
+        "state": { "type": "string" },
+        "status": { "type": "string", "enum": ["Scheduled", "Assigned", "In Transit", "Completed", "Cancelled"] },
+        "collectorId": { "type": "string" },
+        "ecoPointsEarned": { "type": "number" },
+        "createdAt": { "type": "string date-time" }
+      },
+      "required": ["userId", "wasteType", "address", "status"]
+    },
+    "listings": {
+      "title": "Recyclable Listings",
+      "description": "Marketplace listings for recyclable materials",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "title": { "type": "string" },
+        "category": { "type": "string" },
+        "quantity": { "type": "string" },
+        "priceNaira": { "type": "number" },
+        "sellerId": { "type": "string" },
+        "sellerName": { "type": "string" },
+        "sellerPhone": { "type": "string" },
+        "sellerType": { "type": "string" },
+        "location": { "type": "string" },
+        "city": { "type": "string" },
+        "state": { "type": "string" },
+        "imageURL": { "type": "string url" },
+        "description": { "type": "string text" },
+        "status": { "type": "string", "enum": ["Active", "Sold", "Reserved"] },
+        "createdAt": { "type": "string date-time" }
+      },
+      "required": ["title", "category", "priceNaira", "sellerId"]
+    },
+    "transactions": {
+      "title": "Points & Cash Transactions",
+      "description": "History of rewards earned and redeemed",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "userId": { "type": "string" },
+        "type": { "type": "string" },
+        "description": { "type": "string" },
+        "points": { "type": "number" },
+        "nairaValue": { "type": "number" },
+        "category": { "type": "string", "enum": ["pickup", "marketplace", "referral", "redemption"] },
+        "createdAt": { "type": "string date-time" }
+      },
+      "required": ["userId", "points", "type"]
+    }
+  }
+}
